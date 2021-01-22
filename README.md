@@ -1,5 +1,5 @@
-# MyFirstFlutter
-My First Flutter Project
+# MyFlutterSDK
+个人的Flutter开发工具包，里面包含基本的常用Widget的使用
 
 这里包含了两个项目，第一个是关于Dart语法练习的demo， 第二个“douban”项目，可以用Android Studio运行。
 ######“douban”项目中包含的内容
