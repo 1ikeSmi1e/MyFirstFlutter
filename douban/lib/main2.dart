@@ -23,7 +23,7 @@ class MyAPP extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: ContactsPage(title: "计数器页面",),
+      home: CustomScrollPage(title: "计数器页面",),
       debugShowCheckedModeBanner: false,
     );
   }

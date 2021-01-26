@@ -14,25 +14,27 @@ class _CustomScrollPageState extends State<CustomScrollPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text("myCustomScrollView"),
-        // ),
+      // appBar: AppBar(
+      //   title: Text("myCustomScrollView"),
+      // ),
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
               // title: Text("SliverAppBar"),
-              pinned: true,
+              pinned: false,
               expandedHeight: 200,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text("Hello James"),
+                  title: Text("Hello James"),
                   background: Image.asset("images/juren.jpeg", fit: BoxFit.cover,)
               ),
             ),
+            MySliverGrid(),
             MySliverGrid2(),
             MYContactsListSliver(),
+
           ],
         )
-        );
+    );
   }
 }
 
@@ -88,6 +90,8 @@ class MySliverGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverSafeArea(
+      top: false,
+      bottom: true,
       sliver: SliverPadding(
         padding: EdgeInsets.all(8),
         sliver: SliverGrid(

@@ -34,11 +34,11 @@ class _ContactsPageState extends State<ContactsPage> {
       body: Listseparated(controller: _controller,),
       floatingActionButton: _isShowUpwardButton? FloatingActionButton(
         child: Icon(Icons.arrow_upward),
-          onPressed: (){
+        onPressed: (){
           if(_controller.offset > 0){
             _controller.animateTo(0, duration: Duration(milliseconds: 10), curve: ElasticInCurve());
           }
-          },
+        },
       ) : null,
     );
   }
@@ -57,15 +57,15 @@ class Listseparated extends StatelessWidget {
       onNotification: (ScrollNotification notification){
 
         if ( notification is ScrollStartNotification){
-          print("${notification.metrics.pixels}");
+          print("ScrollStartNotification:${notification.metrics.pixels}");
         }else if (notification is ScrollEndNotification) {
-          print("${notification.metrics.pixels}");
+          print("ScrollEndNotification:${notification.metrics.pixels}");
         }else if (notification is ScrollUpdateNotification) {
-          print("${notification.metrics.pixels}");
+          print("ScrollUpdateNotification:${notification.metrics.pixels}");
         }else if (notification is OverscrollNotification) {
-          print("${notification.metrics.pixels}");
+          print("OverscrollNotification:${notification.metrics.pixels}");
         }else if (notification is UserScrollNotification) {
-          print("${notification.metrics.pixels}");
+          print("UserScrollNotification:${notification.metrics.pixels}");
         }
         return true;
       },
@@ -75,7 +75,7 @@ class Listseparated extends StatelessWidget {
             return ContactTile(index: index,);
           },
           separatorBuilder: (BuildContext context, int index){
-            return Divider(thickness: 1, height: 1, endIndent: 10, indent: 10,color: Colors.lightBlueAccent,);
+            return Divider(thickness: 2, height: 5, endIndent: 10, indent: 10,color: Colors.lightBlueAccent,);
           },
           itemCount: 50
       ),
@@ -92,7 +92,7 @@ class Listgenerate extends StatelessWidget {
       // itemExtent: 100,
       // reverse: true, // 列表从末尾开始
       children: List.generate(50, (index) {
-        return ContactTile(index: index,);
+          return ContactTile(index: index,);
       }),
     );
   }

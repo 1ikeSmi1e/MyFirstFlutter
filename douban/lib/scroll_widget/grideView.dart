@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class MyGridePage extends StatefulWidget {
@@ -27,10 +26,19 @@ class _MyGridePageState extends State<MyGridePage> {
                 height: 270,
                 child: Gride2()),
             Text("设置了最大宽度220"),
+            Container(
+              height: 100,
+              child: GridView.count(crossAxisCount: 6,
+                children: List.generate(50, (index) {
+                  return Container(
+                    color: Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256)),
+                  );
+                }),
+              ),
+            ),
           ],
         ) // This trailing comma makes auto-formatting nicer for build methods.
-
-        );
+    );
   }
 }
 
@@ -43,6 +51,7 @@ class Grid3 extends StatelessWidget {
         crossAxisSpacing: 8,
         mainAxisSpacing: 15
     ),
+    itemCount: 20,
     itemBuilder: (BuildContext context, int index){
       return Container(
           color: Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256)));
@@ -60,11 +69,11 @@ class Gride2 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: GridView(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 220,
-          childAspectRatio: 4/5,
+          childAspectRatio: 4/2,
           crossAxisSpacing: 8,
           mainAxisSpacing: 15
          ),
-        children: List.generate(50, (index){
+        children: List.generate(30, (index){
           return Container(
               color: Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256))
           );
@@ -83,16 +92,16 @@ class Gride1 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-              childAspectRatio: 4/5,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 15
+          childAspectRatio: 4/2,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 15
       ),
         children: List.generate(50, (index) {
           return Container(
             color: Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256)),
           );
         }
-             ),
+        ),
       ),
     );
   }
