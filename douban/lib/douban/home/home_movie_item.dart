@@ -2,12 +2,13 @@ import 'dart:math';
 
 import 'package:douban/douban/common_widgets/ZLDashedLine.dart';
 import 'package:douban/douban/common_widgets/ZLStarRating.dart';
+import 'package:douban/douban/utils/log.dart';
 import 'package:flutter/material.dart';
 import 'home_model.dart';
 
 class HYHomeMovieItem extends StatelessWidget {
   final MovieItem movie;
-final int index;
+  final int index;
   HYHomeMovieItem({this.movie, this.index});
 
   @override
@@ -16,7 +17,7 @@ final int index;
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
           border:
-              Border(bottom: BorderSide(width: 8, color: Color(0xffcccccc)))),
+          Border(bottom: BorderSide(width: 8, color: Color(0xffcccc00)))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -57,6 +58,9 @@ final int index;
         SizedBox(
           width: 8,
         ),
+        // IntrinsicHeight(
+        //   child: ,
+        // )
         buildContentInfo(),
         SizedBox(
           width: 8,
@@ -103,22 +107,38 @@ final int index;
   }
 
   Widget buildContentInfoTitle() {
+    String title = "肖生克的救赎---肖生克的救赎-肖生克的救赎";
+    // List<InlineSpan> spans = [];
+    hyLog("message=-----------", StackTrace.current);
     return Text.rich(
-      TextSpan(children: [
-        WidgetSpan(
-          child: Icon(
-          Icons.play_circle_outline,
-          color: Colors.pink,
-          size: 40,
+        TextSpan(children: [
+          WidgetSpan(
+              child: Icon(
+                Icons.play_circle_outline,
+                color: Colors.pink,
+                size: 40,
+              ),
+              baseline: TextBaseline.ideographic,
+              alignment: PlaceholderAlignment.middle
           ),
-          baseline: TextBaseline.ideographic,
-          alignment: PlaceholderAlignment.middle
-        ),
-        WidgetSpan(child: Text("肖生克的救赎", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),), alignment: PlaceholderAlignment.middle),
-        WidgetSpan(child: Text("(1994)"), style: TextStyle(fontSize: 18, color: Colors.grey))
-        // WidgetSpan(child: Text(movie.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),), alignment: PlaceholderAlignment.middle),
-        // WidgetSpan(child: Text("(${movie.playDate})"), style: TextStyle(fontSize: 18, color: Colors.grey))
-      ])
+          // title.runes.map((rune) {
+          //   return WidgetSpan(child: Text(new String.fromCharCode(rune), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),));
+          // }).toList(),
+          WidgetSpan(
+            child: Text("肖生克的救赎---肖生克的救赎-肖生克的救赎",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start,
+              softWrap: false,
+              maxLines:1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            alignment: PlaceholderAlignment.middle,
+
+          ),
+          WidgetSpan(child: Text("(1994)"), style: TextStyle(fontSize: 18, color: Colors.grey))
+          // WidgetSpan(child: Text(movie.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),), alignment: PlaceholderAlignment.middle),
+          // WidgetSpan(child: Text("(${movie.playDate})"), style: TextStyle(fontSize: 18, color: Colors.grey))
+        ]),
     );
   }
 

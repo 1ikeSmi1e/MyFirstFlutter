@@ -4,8 +4,8 @@ import 'home_model.dart';
 import 'home_movie_item.dart';
 
 class HYHomeContent extends StatefulWidget {
-final name = "周利强列表";
-final ScrollController controller;
+  final name = "周利强列表";
+  final ScrollController controller;
   HYHomeContent({Key key, this.controller}) : super(key:key);
   @override
   _HYHomeContentState createState() => _HYHomeContentState();

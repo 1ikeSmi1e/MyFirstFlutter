@@ -20,6 +20,5 @@ class ZLCounterWidget extends InheritedWidget{
     // TODO: implement updateShouldNotify
     return oldWidget.counter != counter;
   }
-
 }
 

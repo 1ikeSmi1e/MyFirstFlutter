@@ -1,8 +1,11 @@
+import 'package:douban/key/globalkey.dart';
 import 'package:flutter/material.dart';
 
 import 'checkbox/firstflutter_checkbox.dart';
 import 'Columns/ShowImagesList.dart';
 import 'counter/CounterPage.dart';
+import 'douban/common_widgets/Star_DashedPage.dart';
+import 'key/localkey.dart';
 import 'scroll_widget/Contacts.dart';
 import 'scroll_widget/customScrollView.dart';
 import 'scroll_widget/grideView.dart';
@@ -23,7 +26,8 @@ class MyAPP extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: CustomScrollPage(title: "计数器页面",),
+      home: HYLocalkeyPage(),
+      // home: HYHomePage(title: "计数器页面",),
       debugShowCheckedModeBanner: false,
     );
   }

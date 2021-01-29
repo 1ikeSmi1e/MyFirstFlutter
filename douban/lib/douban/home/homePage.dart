@@ -19,12 +19,9 @@ class _DBHomePageState extends State<DBHomePage> {
   ScrollController _controller = ScrollController(initialScrollOffset: 0);
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    // 网络请求
-    HomeRequest.requestMovieList(0);
-    _controller.addListener((){
 
+    _controller.addListener((){
       // print("监听到滚动,ScrollOffset=${_controller.offset}");
       setState(() {
         _isShowUpwardButton = _controller.offset > 900;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-
 class HYHomePage extends StatelessWidget {
-  final String title = "列表测试";
+  final String title = 'GlobalKey';
   final GlobalKey<_HYHomeContentState> homeKey = GlobalKey();
+  // const HYHomePage({this.title}) : super();
 
   @override
   Widget build(BuildContext context) {

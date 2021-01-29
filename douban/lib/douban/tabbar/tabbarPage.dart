@@ -57,12 +57,13 @@ class _TabBarPageState extends State<TabBarPage> {
   }
 }
 
-
 //
 class DBBottomItem extends BottomNavigationBarItem {
   DBBottomItem(String iconName, String title) : super(
-    title: Text(title),
-    icon: Image.asset("images/tabbar/${iconName}.png", width: 32,),
-    activeIcon : Image.asset("images/tabbar/${iconName}_active.png", width: 32,),
+    // ignore: deprecated_member_use
+    // title: Text(title),
+    label: title,
+    icon: Image.asset("images/tabbar/${iconName}.png", width: 32, gaplessPlayback: true,),
+    activeIcon : Image.asset("images/tabbar/${iconName}_active.png", width: 32,gaplessPlayback: true,),
   );
 }
