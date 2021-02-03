@@ -1,10 +1,17 @@
 import 'package:douban/key/globalkey.dart';
+import 'package:douban/page_skip/detail_page.dart';
+import 'package:douban/page_skip/generate_route.dart';
+import 'package:douban/page_skip/named_route.dart';
+import 'package:douban/page_skip/route.dart';
+import 'package:douban/page_skip/unknown_page.dart';
 import 'package:flutter/material.dart';
 
 import 'checkbox/firstflutter_checkbox.dart';
 import 'Columns/ShowImagesList.dart';
 import 'counter/CounterPage.dart';
 import 'douban/common_widgets/Star_DashedPage.dart';
+import 'gesture/eventbus_usage.dart';
+import 'gesture/gesture_detector.dart';
 import 'key/localkey.dart';
 import 'scroll_widget/Contacts.dart';
 import 'scroll_widget/customScrollView.dart';
@@ -26,8 +33,28 @@ class MyAPP extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HYLocalkeyPage(),
-      // home: HYHomePage(title: "计数器页面",),
+      initialRoute: NamedRoutePage.routeName,
+      routes: {
+        NamedRoutePage.routeName: (ctx) => NamedRoutePage(title: "命名路由页面",),
+        RouteDetailPage.routeName: (ctx) => RouteDetailPage(title: "详情页面",),
+      },
+      onGenerateRoute: (RouteSettings settings){
+        if (settings.name == GenerateRoutePage.routeName){
+          return MaterialPageRoute(
+              builder: (ctx){
+                return GenerateRoutePage(settings.arguments);
+              });
+        }else{
+          return null;
+        }
+      },
+      onUnknownRoute: (RouteSettings settings){
+      return MaterialPageRoute(builder: (ctx){
+        return UnknownPage(title: settings.arguments,);
+      });
+      },
+      // home: HYLocalkeyPage(),
+      // home: NamedRoutePage(title: "计数器页面",),
       debugShowCheckedModeBanner: false,
     );
   }

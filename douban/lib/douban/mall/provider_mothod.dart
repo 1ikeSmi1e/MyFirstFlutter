@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'provider_counter_viewmodel.dart';
 
 class ProviderMethod extends StatelessWidget {
@@ -17,7 +16,7 @@ class ProviderMethod extends StatelessWidget {
 class MyCard1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("MyCard1: builder----");
+    print("MyCard1: build----");
     int counter = Provider.of<ZLCounterVM>(context).counter;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -37,14 +36,14 @@ class MyCard1 extends StatelessWidget {
 class MyCard2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("MyCard2: builder----");
-    int counter = Provider.of<ZLCounterVM>(context).counter;
+    print("MyCard2: build----");
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Consumer<ZLCounterVM>(
           builder: (context, couterVM, child){
-            print("MyCard2: Consumer/builder----");
+            // int counter = Provider.of<ZLCounterVM>(context).counter;
+            print("MyCard2: Consumer->builder----$child");
             return Card(
               color: Colors.redAccent,
               child: Text(
@@ -53,7 +52,6 @@ class MyCard2 extends StatelessWidget {
               ),
             );
           },
-          // child: ,
         ),
       ],
     );
@@ -63,21 +61,21 @@ class MyCard2 extends StatelessWidget {
 class MyCard3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
+    print("MyCard3: build----");
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Selector<ZLCounterVM, ZLCounterVM>(
           shouldRebuild: (pre, next) {
-            print("MyCard3: shouldRebuild----");
+            print("MyCard3->Selector: shouldRebuild----");
             return true;
           },
          selector: (context, counterVM)  {
-           print("MyCard3: selector----");
+           print("MyCard3:->selector----");
            return counterVM;
          },
           builder: (BuildContext context, ZLCounterVM couterVM, Widget child){
-            print("MyCard3: builder:----");
+            print("MyCard3->builder:----");
               return Card(
                 color: Colors.redAccent,
                 child: Text(
