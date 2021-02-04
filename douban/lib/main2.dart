@@ -6,6 +6,11 @@ import 'package:douban/page_skip/route.dart';
 import 'package:douban/page_skip/unknown_page.dart';
 import 'package:flutter/material.dart';
 
+import 'animations/animate_widget.dart';
+import 'animations/animated_builder.dart';
+import 'animations/animation_controller.dart';
+import 'animations/hero_animation.dart';
+import 'animations/interweave_animtion.dart';
 import 'checkbox/firstflutter_checkbox.dart';
 import 'Columns/ShowImagesList.dart';
 import 'counter/CounterPage.dart';
@@ -33,7 +38,7 @@ class MyAPP extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      initialRoute: NamedRoutePage.routeName,
+      // initialRoute: NamedRoutePage.routeName,
       routes: {
         NamedRoutePage.routeName: (ctx) => NamedRoutePage(title: "命名路由页面",),
         RouteDetailPage.routeName: (ctx) => RouteDetailPage(title: "详情页面",),
@@ -54,7 +59,7 @@ class MyAPP extends StatelessWidget {
       });
       },
       // home: HYLocalkeyPage(),
-      // home: NamedRoutePage(title: "计数器页面",),
+      home: HeroAnimationPage(title: "计数器页面",),
       debugShowCheckedModeBanner: false,
     );
   }
